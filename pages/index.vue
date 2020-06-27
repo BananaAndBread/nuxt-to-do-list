@@ -28,6 +28,7 @@
   .wrapper {
     margin-top: 3em;
     margin-left: 3em;
+    margin-right: 3em;
   }
   h1 {
     font-family: Happy Monkey, fantasy;
