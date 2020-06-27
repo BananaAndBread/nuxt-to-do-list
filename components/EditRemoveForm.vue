@@ -9,8 +9,8 @@
       <textarea v-model="dataAfterEdit.description"/>
     </form>
     <div class="buttons-container">
-    <Button @click.native="acceptChanges" v-bind:text="'Save'"></Button>
-    <Button @click.native="deleteToDo" class="delete-button" v-bind:text="'Delete'"></Button>
+    <Button @click.native="acceptChanges" :text="'Save'"></Button>
+    <Button @click.native="deleteToDo" class="delete-button" :text="'Delete'"></Button>
     </div>
   </div>
 </template>

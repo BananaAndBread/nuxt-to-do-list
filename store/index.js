@@ -28,18 +28,18 @@ export const mutations ={
 }
 
 export const actions = {
-  removeToDo (context, id) {
-    this.$axios({
+  async removeToDo (context, id) {
+    await this.$axios({
       method: 'delete',
       url: `https://todo-list.ionagamed.ru/todos/${id}`,
       headers: {
         'Content-Type': 'application/json'
       }
     })
-      .then(context.commit('removeToDo', id))
+    context.commit('removeToDo', id)
   },
-  addToDo (context, newToDo) {
-    this.$axios({
+  async addToDo (context, newToDo) {
+    let response = await this.$axios({
       method: 'post',
       headers: {
         'Content-Type': 'application/json'
@@ -52,26 +52,20 @@ export const actions = {
         description: newToDo.description
       }
     })
-      .then((response) => {
-        context.commit('addToDo', response.data)
-      })
-      .catch((e) => console.log(e.message))
+    context.commit('addToDo', response.data)
   },
-  getToDos (context) {
-    this.$axios.get('https://todo-list.ionagamed.ru/todos/?projectId=9Yp_ExY7WgmmPUL3XeOwn')
-      .then((response) => {
-        context.commit('getToDos', response.data)
-        console.log("Go todos", response.data)
-      })
+  async getToDos (context) {
+    let response = await this.$axios.get('https://todo-list.ionagamed.ru/todos/?projectId=9Yp_ExY7WgmmPUL3XeOwn')
+    context.commit('getToDos', response.data.reverse())
+
   },
-  updateToDo (context, changedToDo) {
-    this.$axios({
+  async updateToDo (context, changedToDo) {
+    let response = await this.$axios({
       method: 'patch',
       url: `https://todo-list.ionagamed.ru/todos/${changedToDo.id}`,
       data: changedToDo
-    }).then(() => {
-      context.commit('updateToDo', changedToDo)
     })
+    context.commit('updateToDo', changedToDo)
   }
 }
 

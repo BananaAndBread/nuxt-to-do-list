@@ -26,8 +26,10 @@
   export default {
     name: 'to-do-list',
     components: { ToDoElement, ToDoAddForm },
+    async fetch () {
+      return this.$store.dispatch('getToDos')
+    },
     mounted () {
-      this.$store.dispatch('getToDos')
       console.log("state", this.$store.state.todos)
     },
     data () {

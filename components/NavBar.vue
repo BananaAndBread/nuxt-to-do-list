@@ -3,14 +3,14 @@
     <nav class="nav">
       <div class="big-screen-nav">
         <span class="nav__link" v-bind:key="linkName.id" v-for="linkName of linkNames">
-          <nuxt-link :to="linkName">{{linkName.value}} </nuxt-link>
+          <nuxt-link :to="linkName.link">{{linkName.value}} </nuxt-link>
         </span>
       </div>
       <div class="small-screen-nav dropdown">
         <NavBarIcon class="svg-nav-bar dropbtn"/>
         <div class="dropdown-content">
           <span class="nav__link" v-bind:key="linkName.id" v-for="linkName of linkNames">
-        <nuxt-link :to="linkName">{{linkName.value}}</nuxt-link>
+        <nuxt-link :to="linkName.link">{{linkName.value}}</nuxt-link>
           </span>
         </div>
       </div>
@@ -26,7 +26,8 @@
     },
     data () {
       return {
-        linkNames: [{ id: 2, value: 'ToDoList', link: '/todolist' }],
+        linkNames: [{ id: 2, value: 'ToDoList', link: '/todolist' },
+          {id: 2, value: 'About', link: '/'}],
       }
     },
     mounted() {

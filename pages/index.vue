@@ -1,15 +1,10 @@
 <template>
-  <div>
-    <h1>About</h1>
-    <p>Hello, here is an example of simple to-do list app made to practive Vue framework </p>
-    <p>What is inside? </p>
-    <ul>
-      <li> components</li>
-      <li> styles (custom)</li>
-      <li> axios requests</li>
-      <li> vuex</li>
-      <li> vue router (basic)</li>
-    </ul>
+  <div class = "wrapper">
+    <div class="center-content">
+      <h1>About</h1>
+      <p>Hello, here is an example of simple to-do list app made to practive Vue framework + Nuxt </p>
+      <p>What is inside? </p>
+    </div>
   </div>
 </template>s
 
@@ -18,5 +13,11 @@
     name: 'About'
   }
 </script>
-<style>
+<style scoped>
+  .wrapper {
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+
+  }
 </style>
