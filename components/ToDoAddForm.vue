@@ -62,7 +62,7 @@
         return {
         'description-form-textarea': true,
           'error-input': this.invalidDescription && this.triedSubmit,
-          'not-error-input': !this.invalidDescription
+          'not-error-input': !(this.invalidDescription && this.triedSubmit)
 }
       }
     },
