@@ -5,7 +5,7 @@ export const state = () => ({
 export const getters = {
 }
 
-export const mutations ={
+export const mutations = {
   removeToDo (state, id) {
     state.todos = state.todos.filter(todo => todo.id !== id)
   },
@@ -15,11 +15,9 @@ export const mutations ={
   getToDos (state, data) {
     state.todos = data
   },
-  updateToDo(state, changedToDo) {
-    console.log("Here")
-    state.todos = state.todos.map((todo)=>{
-      if (todo.id===changedToDo.id){
-        console.log(" I changed this shit")
+  updateToDo (state, changedToDo) {
+    state.todos = state.todos.map((todo) => {
+      if (todo.id === changedToDo.id) {
         return changedToDo
       }
       return todo
@@ -39,7 +37,7 @@ export const actions = {
     context.commit('removeToDo', id)
   },
   async addToDo (context, newToDo) {
-    let response = await this.$axios({
+    const response = await this.$axios({
       method: 'post',
       headers: {
         'Content-Type': 'application/json'
@@ -55,12 +53,11 @@ export const actions = {
     context.commit('addToDo', response.data)
   },
   async getToDos (context) {
-    let response = await this.$axios.get('https://todo-list.ionagamed.ru/todos/?projectId=9Yp_ExY7WgmmPUL3XeOwn')
+    const response = await this.$axios.get('https://todo-list.ionagamed.ru/todos/?projectId=9Yp_ExY7WgmmPUL3XeOwn')
     context.commit('getToDos', response.data.reverse())
-
   },
   async updateToDo (context, changedToDo) {
-    let response = await this.$axios({
+    await this.$axios({
       method: 'patch',
       url: `https://todo-list.ionagamed.ru/todos/${changedToDo.id}`,
       data: changedToDo
@@ -68,4 +65,3 @@ export const actions = {
     context.commit('updateToDo', changedToDo)
   }
 }
-

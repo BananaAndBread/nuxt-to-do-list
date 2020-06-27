@@ -5,15 +5,15 @@
         <div class="imgcontainer">
           <span @click="closeModal" class="close" title="Close">&times;</span>
         </div>
-        <edit-remove-form-custom @closeModal='closeModal' ref="editRemoveForm" v-bind:toDoElement="todoelement">
-        </edit-remove-form-custom>
+        <EditRemoveForm @closeModal='closeModal' ref="editRemoveForm" v-bind:toDoElement="todoelement">
+        </EditRemoveForm>
       </form>
     </div>
   </div>
 </template>
 
 <script>
-  import EditRemoveFormCustom from './EditRemoveForm'
+  import EditRemoveForm from './EditRemoveForm'
 
   export default {
     name: 'Modal',
@@ -24,12 +24,9 @@
       closeModal () {
         this.$emit('close:modal')
       },
-      saveState () {
-        console.log('Save state in modal')
-      },
     },
     components: {
-      EditRemoveFormCustom
+      EditRemoveForm
     }
 
   }

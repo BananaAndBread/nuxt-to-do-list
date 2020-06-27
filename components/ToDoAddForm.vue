@@ -3,12 +3,12 @@
     <form v-on:submit.prevent="handleSubmit">
       <div class="title-form">
         <p class="title-label">Title: &nbsp;</p>
-        <input :class="{'error-input': invalidTitle && triedSubmit, 'title-form-input': true}" id="title" v-model="newToDoTitle" type="text">
+        <input :class="classInput" id="title" v-model="newToDoTitle" type="text">
       </div>
       <div class="description-form">
         <p>Description</p>
         <br>
-        <textarea :class="{'description-form-textarea':true, 'error-input':invalidDescription && triedSubmit, 'not-error-input': !invalidDescription}"  v-model="newToDoDescription">
+        <textarea :class="classTextArea"  v-model="newToDoDescription">
     </textarea>
         <p v-if="invalidDescription && triedSubmit"> NO EMPTY SPACES!</p>
       </div>
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-  import Button from '@/components/Button';
+  import Button from '@/components/Button'
   export default {
     name: 'to-do-form',
     data () {
@@ -27,7 +27,6 @@
         newToDoDescription: '',
         error: false,
         triedSubmit: false
-
       }
     },
     methods: {
@@ -37,7 +36,6 @@
           return
         }
         const newToDo = { title: this.newToDoTitle, description: this.newToDoDescription }
-        console.log('I submit' + newToDo)
         this.$emit('add:new-todo', newToDo)
         this.newToDoTitle = ''
         this.newToDoDescription = ''
@@ -53,9 +51,20 @@
       },
       invalidDescription () {
         return this.newToDoDescription === ''
+      },
+      classInput () {
+        return {
+          'error-input': this.invalidTitle && this.triedSubmit,
+          'title-form-input': true
+        }
+      },
+      classTextArea () {
+        return {
+        'description-form-textarea': true,
+          'error-input': this.invalidDescription && this.triedSubmit,
+          'not-error-input': !this.invalidDescription
+}
       }
-    //   titleInputClassName(){}
-    //     return
     },
     components: {
       Button

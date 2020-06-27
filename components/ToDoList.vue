@@ -20,7 +20,7 @@
 </template>
 
 <script>
-  import {mapState} from 'vuex'
+  import {mapState } from 'vuex'
   import ToDoElement from './ToDoElement'
   import ToDoAddForm from './ToDoAddForm'
   export default {
@@ -30,7 +30,6 @@
       return this.$store.dispatch('getToDos')
     },
     mounted () {
-      console.log("state", this.$store.state.todos)
     },
     data () {
       return {
@@ -91,6 +90,11 @@
     margin-top: 0;
   }
 
+  .title{
+    padding-top: 3em;
+    margin-bottom: 1em;
+  }
+
   @media (max-width: 1029px) {
     .to-do-list{
       display: flex;
@@ -126,9 +130,6 @@
     }
     .content{
       margin-left: 30px;
-    }
-    .title{
-      padding-top: 3em;
     }
   }
 

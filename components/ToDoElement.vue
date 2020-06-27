@@ -34,7 +34,7 @@
         this.modalOpen = false
       },
       handleCheck (e) {
-        let changedToDoElement = Object.assign({}, this.todoelement)
+        const changedToDoElement = Object.assign({}, this.todoelement)
         changedToDoElement.isCompleted = e.target.checked
         this.$store.dispatch('updateToDo', changedToDoElement)
       }

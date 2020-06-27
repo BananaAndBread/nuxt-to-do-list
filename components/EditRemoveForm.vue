@@ -20,11 +20,11 @@
   export default {
     data () {
       return {
-        dataAfterEdit: {},
+        dataAfterEdit: {}
       }
     },
     props: {
-      toDoElement: {},
+      toDoElement: {}
     },
     components: {
       Button
@@ -34,14 +34,12 @@
     },
     methods: {
       acceptChanges () {
-        console.log("Here 1")
         this.$store.dispatch('updateToDo', this.dataAfterEdit)
         this.$emit('closeModal')
       },
       deleteToDo () {
         this.$emit('closeModal')
         this.$store.dispatch('removeToDo', this.toDoElement.id)
-        console.log(this.$store.state.todos)
       }
     }
   }
@@ -54,30 +52,23 @@
     padding-top: 25px;
   }
 
-  .edit-remove-form h3 {
-    font-family: Abel,serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    letter-spacing: 0.16px;
-    color: #9A9A9A;
-    text-align: left;
-    margin-left: 15%;
-  }
-
   .edit-remove-form h1 {
     font-family: "Happy Monkey", fantasy;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
+    font-size: 24px;
     line-height: 30px;
     text-align: left;
     margin-left: 15%;
+    margin-bottom: 10px;
   }
 
   .edit-remove-form p {
     text-align: left;
     margin-left: 15%;
+    color: #808080;
+    margin-top: 0.5em;
+    margin-top: 1em;
   }
 
   form {
@@ -85,23 +76,23 @@
     flex-direction: column;
   }
 
-  form p{
-    color: #808080;
-  }
-
   input, textarea{
+    margin-top: 1em;
     margin-left: 15%;
-    /*border: 1px gray solid;*/
     width: 50%;
     padding: 0.5em;
     border: hidden;
-    border-bottom: 1px rgba(203, 203, 203, 0.58) solid;
+    font-family: Abel,serif;
+    font-size: 18px;
+    border-bottom: 1px rgba(203, 203, 203, 0.58) solid
   }
   input{
     height: 2em;
   }
   textarea{
     height: auto;
+    border: 1px rgba(203, 203, 203, 0.58) solid;
+    border-radius: 5px;
   }
 
   hr{
@@ -111,6 +102,7 @@
 
   Button{
     min-width: 5em;
+    width: 15%;
     width: 15%;
     margin-top: 3em;
   }

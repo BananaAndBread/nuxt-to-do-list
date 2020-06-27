@@ -27,10 +27,10 @@
     data () {
       return {
         linkNames: [{ id: 2, value: 'ToDoList', link: '/todolist' },
-          {id: 2, value: 'About', link: '/'}],
+          { id: 2, value: 'About', link: '/'}],
       }
     },
-    mounted() {
+    mounted () {
       console.log()
     }
   }
@@ -41,19 +41,18 @@
     background: #F96060;
     border-radius: 5px;
     display: flex;
-    padding-top: 5px;
-    padding-bottom: 5px;
-
+    font-family: Abel,serif;
   }
 
   .nav__link {
-    margin-left: 5px;
-    margin-right: 5px;
     border-right: white 1px solid;
     height: 100%;
     font-size: 1.5em;
-    padding-right: 5px;
-
+    padding-right: 0.5em;
+    padding-top: 0.5em;
+    padding-left: 0.5em;
+    padding-bottom: 0.5em;
+    display: inline-block;
   }
 
   .svg-nav-bar {
