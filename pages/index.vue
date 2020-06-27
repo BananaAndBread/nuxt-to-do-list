@@ -13,7 +13,7 @@
         </div>
         <p> P.P.S It is kinda responsive</p>
         <p> P.P.P.S You are welcome to write issues to make the code better</p>
-        <p> P.P.P.P.S No DDoS please. </p>
+        <p> P.P.P.P.S No DoS please. </p>
       </div>
     </div>
   </div>
