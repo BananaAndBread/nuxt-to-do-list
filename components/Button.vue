@@ -3,10 +3,10 @@
 </template>
 
 <script>
-  export default {
-    name: 'Button',
-    props: ['text']
-  }
+export default {
+  name: 'Button',
+  props: ['text']
+}
 </script>
 <style scoped>
   .custom-button {

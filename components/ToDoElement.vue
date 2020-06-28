@@ -7,43 +7,44 @@
       </span>
       <p>{{todoelement.title}} &nbsp;</p>
       <button v-on:click="openModal">More</button>
-
     </div>
-    <modal @close:modal="closeModal" v-bind:todoelement="todoelement" v-if="modalOpen"></modal>
+    <client-only>
+      <modal @close:modal="closeModal" v-bind:todoelement="todoelement" v-if="modalOpen"></modal>
+    </client-only>
   </div>
 </template>
 
 <script>
-  import Modal from './Modal'
+import Modal from './Modal'
 
-  export default {
-    name: 'to-do-element',
-    props: {
-      todoelement: {}
-    },
-    data () {
-      return {
-        modalOpen: false
-      }
-    },
-    methods: {
-      openModal () {
-        this.modalOpen = true
-      },
-      closeModal () {
-        this.modalOpen = false
-      },
-      handleCheck (e) {
-        const changedToDoElement = Object.assign({}, this.todoelement)
-        changedToDoElement.isCompleted = e.target.checked
-        this.$store.dispatch('updateToDo', changedToDoElement)
-      }
-    },
-    components: {
-      Modal
+export default {
+  name: 'to-do-element',
+  props: {
+    todoelement: {}
+  },
+  data () {
+    return {
+      modalOpen: false
     }
-
+  },
+  methods: {
+    openModal () {
+      this.modalOpen = true
+    },
+    closeModal () {
+      this.modalOpen = false
+    },
+    handleCheck (e) {
+      const changedToDoElement = Object.assign({}, this.todoelement)
+      changedToDoElement.isCompleted = e.target.checked
+      this.$store.dispatch('updateToDo', changedToDoElement)
+    }
+  },
+  components: {
+    Modal
   }
+
+}
 </script>
 
 <style scoped>

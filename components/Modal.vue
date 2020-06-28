@@ -13,23 +13,23 @@
 </template>
 
 <script>
-  import EditRemoveForm from './EditRemoveForm'
+import EditRemoveForm from './EditRemoveForm'
 
-  export default {
-    name: 'Modal',
-    props: {
-      todoelement: {}
-    },
-    methods: {
-      closeModal () {
-        this.$emit('close:modal')
-      },
-    },
-    components: {
-      EditRemoveForm
+export default {
+  name: 'Modal',
+  props: {
+    todoelement: {}
+  },
+  methods: {
+    closeModal () {
+      this.$emit('close:modal')
     }
-
+  },
+  components: {
+    EditRemoveForm
   }
+
+}
 </script>
 
 <style scoped>

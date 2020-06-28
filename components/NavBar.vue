@@ -18,22 +18,22 @@
   </header>
 </template>
 <script>
-  import NavBarIcon from '../assets/nav-bar-icon.svg'
-  export default {
-    name: 'nav-bar',
-    components: {
-      NavBarIcon
-    },
-    data () {
-      return {
-        linkNames: [{ id: 2, value: 'ToDoList', link: '/todolist' },
-          { id: 2, value: 'About', link: '/'}],
-      }
-    },
-    mounted () {
-      console.log()
+import NavBarIcon from '../assets/nav-bar-icon.svg'
+export default {
+  name: 'nav-bar',
+  components: {
+    NavBarIcon
+  },
+  data () {
+    return {
+      linkNames: [{ id: 2, value: 'ToDoList', link: '/todolist' },
+        { id: 2, value: 'About', link: '/' }]
     }
+  },
+  mounted () {
+    console.log()
   }
+}
 </script>
 <style scoped>
   .nav {

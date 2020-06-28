@@ -7,7 +7,9 @@
         <table>
           <tbody>
           <tr>
-            <to-do-element v-for ="todo in todos" v-bind:key="todo.id" v-bind:todoelement = "todo"/>
+            <td>
+              <to-do-element v-for ="todo in todos" v-bind:key="todo.id" v-bind:todoelement = "todo"/>
+            </td>
           </tr>
           </tbody>
         </table>
@@ -20,39 +22,39 @@
 </template>
 
 <script>
-  import {mapState } from 'vuex'
-  import ToDoElement from './ToDoElement'
-  import ToDoAddForm from './ToDoAddForm'
-  export default {
-    name: 'to-do-list',
-    components: { ToDoElement, ToDoAddForm },
-    async fetch () {
-      return this.$store.dispatch('getToDos')
-    },
-    mounted () {
-    },
-    data () {
-      return {
-      }
-    },
-    methods: {
-      countTasksDone () {
-        let counter = 0
-        for (const todo of this.todos) {
-          if (todo.isCompleted === true) {
-            counter += 1
-          }
-        }
-        return counter
-      },
-      addNewToDo (newToDo) {
-        this.$store.dispatch('addToDo', newToDo)
-      }
-    },
-    computed: {
-      ...mapState(['todos'])
+import { mapState } from 'vuex'
+import ToDoElement from './ToDoElement'
+import ToDoAddForm from './ToDoAddForm'
+export default {
+  name: 'to-do-list',
+  components: { ToDoElement, ToDoAddForm },
+  async fetch () {
+    return this.$store.dispatch('getToDos')
+  },
+  mounted () {
+  },
+  data () {
+    return {
     }
+  },
+  methods: {
+    countTasksDone () {
+      let counter = 0
+      for (const todo of this.todos) {
+        if (todo.isCompleted === true) {
+          counter += 1
+        }
+      }
+      return counter
+    },
+    addNewToDo (newToDo) {
+      this.$store.dispatch('addToDo', newToDo)
+    }
+  },
+  computed: {
+    ...mapState(['todos'])
   }
+}
 </script>
 
 <style scoped>
