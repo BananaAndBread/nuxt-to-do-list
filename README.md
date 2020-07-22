@@ -1,4 +1,5 @@
 # nuxt-to-do-list
+Live: https://nuxt-to-do-list.herokuapp.com/
 
 ## Build Setup
 
